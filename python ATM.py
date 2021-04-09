@@ -95,7 +95,7 @@ def bank_operations():
             print("2. Deposit")
             print("3. Complaint")
 
-            # EXTRA/ADDITIONAL OPTION
+            # IMPROVEMENT/EXTRA/ADDITIONAL OPTION
             print("4. Logout")
             
             atm_input=input("How can we help you today? \n")
