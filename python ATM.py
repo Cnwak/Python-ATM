@@ -71,7 +71,7 @@ def register():
 
     print("Your account has been created")
 
-    login()
+    
 
   elif(will_register == '2'):
     print("Please come back again sometime.")
