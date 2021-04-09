@@ -1,11 +1,15 @@
 
+# IMPORTING DATE-TIME
 from datetime import datetime
 now= datetime.now()
 
+
+# IMPORTING RANDOM
 import random
 database={}
 
 
+# INITIALIZING FUNCTION
 def init():
     is_valid_option = False 
 
@@ -24,7 +28,7 @@ def init():
         else:
             print("Invalid option selected")  
 
-
+# LOGIN FUNCTION
 def login():
     
     name = input("What is your name? \n" )
@@ -53,7 +57,7 @@ def login():
         init()
             
 
-        
+# REGISTRATION FUNCTION        
 def register():
   will_register = input("You do not have an account with us, would you like to register? 1 (yes) 2 (no) \n")
   if(will_register == '1'):
@@ -76,38 +80,66 @@ def register():
     print("Invalid option selected")
     init()  
 
+
+# ACCOUNT NUMBER GENERATOR FUNCTION
 def generate_acct_num():
   print("Generating account number...")
   return random.randrange(0000000000,9999999999)
 
+
+# BANK OPERATION FUNCTIONS
 def bank_operations():
     
             print("These are the options:")
             print("1. Withdrawal")
             print("2. Deposit")
             print("3. Complaint")
+
+            # EXTRA/ADDITIONAL OPTION
+            print("4. Logout")
             
             atm_input=input("How can we help you today? \n")
             if(atm_input == "1"):
-                input("How much would you like to withdraw? \n")
-                print("Take your cash.")
-                pass
-            
+                withdraw()
+             
             elif(atm_input == "2"):
-                deposit=input("How much would you like to deposit? \n")
-                print("Your current balance is $%s." %deposit)
-                pass
+               deposit()
             
             elif(atm_input == "3"):
-                input("What issue will you like to report? \n")
-                print("Thank you for contacting us.")
-                pass
+                complaint()
+
+
+            elif(atm_input == "4"):
+                init()
+
+
             else:
                 print("Invalid option selected")
                 init()
-  
-   
+
+# WITHDRAW FUNCTION
+def withdraw():
+       input("How much would you like to withdraw? \n")
+       print("Take your cash.")
+       pass
+            
+# DEPOSIT FUNCTION
+def deposit():
+     deposit=input("How much would you like to deposit? \n")
+     print("Your current balance is $%s." %deposit)
+     pass
+
+# COMPLAINT FUNCTION
+def complaint():
+    input("What issue will you like to report? \n")
+    print("Thank you for contacting us.")
+    pass    
+
+    
+# INITIALIZING   
 init()
+
+
 
 
 
