@@ -6,7 +6,9 @@ now= datetime.now()
 
 # IMPORTING RANDOM
 import random
-database={}
+records={"Emeka": "passwordEmeka",
+          "Seyi" : "passwordSeyi",
+          "Mike": "passwordMike"}
 
 
 # INITIALIZING FUNCTION
@@ -31,17 +33,15 @@ def init():
 # LOGIN FUNCTION
 def login():
     
-    name = input("What is your name? \n" )
-
-    approved_names=["Emeka", "Deji" , "Mike"]
-    approved_passwords= ["passwordEmeka", "passwordDeji","passwordMike"]
+    name = input("What is your login name? \n" )
 
 
-    if(name in approved_names):
+
+    if(name in records):
         password= input("Please input your password \n")
-        user_id = approved_names.index(name)
+        
 
-        if(password == approved_passwords[user_id]):
+        if(password == records[name]):
             print("Welcome back %s" %name)
             
             date_time = now.strftime("%d/%m/%Y %H:%M:%S")
@@ -67,7 +67,7 @@ def register():
     password =input("Create a password \n")
     account_num = generate_acct_num()
 
-    database[account_num] = [first_name, last_name, email]
+    records[account_num] = [first_name, last_name, email]
 
     print("Your account has been created")
 
