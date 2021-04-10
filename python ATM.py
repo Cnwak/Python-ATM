@@ -36,10 +36,11 @@ def login():
     
     account_number = int(input("What is your account no.? \n" ))
     print("========================")
-    password= input("Please input your password \n")
+    
         
     for account_num,user_details, in records.items():
         if(account_num == account_number):
+            password= input("Please input your password \n")
             if(user_details[3] == password):    
               print("Welcome back %s %s" %(user_details[1],user_details[0])) 
               print("========================")
@@ -140,8 +141,8 @@ def withdraw():
             
 # DEPOSIT FUNCTION
 def deposit():
-     deposit=input("How much would you like to deposit? \n")
-     print("Your current balance is $%s." %deposit)
+     deposit=int(input("How much would you like to deposit? \n"))
+     print("Your current balance is $%d." %deposit)
      pass
 
 # COMPLAINT FUNCTION
