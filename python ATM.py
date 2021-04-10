@@ -6,9 +6,9 @@ now= datetime.now()
 
 # IMPORTING RANDOM
 import random
-records={"Emeka": "passwordEmeka",
-          "Seyi" : "passwordSeyi",
-          "Mike": "passwordMike"}
+
+
+records={}
 
 
 # INITIALIZING FUNCTION
@@ -29,32 +29,41 @@ def init():
             
         else:
             print("Invalid option selected")  
+              
 
 # LOGIN FUNCTION
 def login():
     
-    name = input("What is your login name? \n" )
+    account_number = int(input("What is your account no.? \n" ))
+    print("========================")
+    password= input("Please input your password \n")
+        
+    for account_num,user_details, in records.items():
+        if(account_num == account_number):
+            if(user_details[3] == password):    
+              print("Welcome back %s %s" %(user_details[1],user_details[0])) 
+              print("========================")
+              date_time = now.strftime("%d/%m/%Y %H:%M:%S")
+              print("Todays date and time are ",date_time )
+              print("========================")
+              bank_operations()
 
-
-
-    if(name in records):
-        password= input("Please input your password \n")
+            else:
+              print("Incorrect password, please try again.")
+              print("========================")
+              init()  
+        
+        elif(account_num is not account_number):
+            print("Invalid account number. Please try again")
+            print("========================")
+            init()
+    
         
 
-        if(password == records[name]):
-            print("Welcome back %s" %name)
-            
-            date_time = now.strftime("%d/%m/%Y %H:%M:%S")
-            print("Todays date and time are ",date_time )
-            bank_operations()
+        
 
-        else:
-            print("Incorrect password, please try again.")
-            init()
+        
             
-    else:
-        print("You are not an approved user.")
-        init()
             
 
 # REGISTRATION FUNCTION        
@@ -62,14 +71,19 @@ def register():
   will_register = input("You do not have an account with us, would you like to register? 1 (yes) 2 (no) \n")
   if(will_register == '1'):
     first_name = input("What is your first name? \n")
+    print("========================")
     last_name =input("What is your last name? \n")
+    print("========================")
     email =input("What is your email address? \n")
+    print("========================")
     password =input("Create a password \n")
     account_num = generate_acct_num()
 
-    records[account_num] = [first_name, last_name, email]
+    records[account_num] = [first_name, last_name, email,password]
 
-    print("Your account has been created")
+    print("Your account has been created. Your account number is %d" %account_num)
+    print("========================")
+    login()
 
     
 
@@ -78,6 +92,7 @@ def register():
 
   else:
     print("Invalid option selected")
+    print("========================")
     init()  
 
 
